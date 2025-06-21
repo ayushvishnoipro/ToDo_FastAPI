@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Union
 from enum import Enum
 
 class StatusEnum(str, Enum):
@@ -27,12 +27,12 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    username: Optional[str] = None
+    username: Union[str, None] = None
 
 # Task schemas
 class TaskBase(BaseModel):
     title: str
-    description: Optional[str] = None
+    description: Union[str, None] = None
 
 class TaskCreate(TaskBase):
     pass
