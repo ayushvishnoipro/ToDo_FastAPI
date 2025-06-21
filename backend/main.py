@@ -14,14 +14,9 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Task Manager API")
 
 # Configure CORS for frontend
-import os
-
-# Get frontend URL from environment or allow all in development
-frontend_url = os.environ.get("FRONTEND_URL", "*")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url] if frontend_url != "*" else ["*"],
+    allow_origins=["*"],  # Update this with your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
