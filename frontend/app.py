@@ -4,7 +4,8 @@ import json
 from enum import Enum
 
 # API URL - Replace with your backend URL when deployed
-API_URL = "http://127.0.0.1:8000"
+import os
+API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000")
 
 # Task status enum to match backend
 class StatusEnum(str, Enum):
